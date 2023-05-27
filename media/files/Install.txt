@@ -1,0 +1,64 @@
+# Install Flutter Without Androis Studio
+
+
+1. Install Java ( OpenJDK or Jre)
+
+URL: https://java.com/en/download/windows_offline.jsp
+
+
+
+
+2. Install Android command tools
+
+URL: https://developer.android.com/studio#command-tools
+
+Steps:
+	1. Create a new folder inside "C" with name "Android".
+	2. Create a new folder inside "C:\Android" with name "cmdline-tools".
+	3. Exract the zip file and copy the "latest" folder inside "C:\Android\cmdline-tools"
+	   to be look like this "C:\Android\cmdline-tools\latest".
+	4. Set some of environment variables:
+		- setx ANDROID_HOME "C:\Android"
+		- setx path "%path%;"C:\Android\cmdline-tools;C:\Android\cmdline-tools\latest;C:\Android\cmdline-tools\latest\bin"
+
+
+
+3. Download Android SDK:
+
+Steps:
+	1. Open CMD
+	2. Put this commands:
+		- sdkmanager "system-images;android-28;default;x86_64"
+		- sdkmanager "platform-tools"
+		- sdkmanager "build-tools;29.0.3"
+		- sdkmanager "platforms;android-29"
+		- sdkmanager emulator
+
+	3. Than accept licence with:
+		- sdkmanager --licenses
+
+
+
+4. Install Flutter
+
+URL: https://flutter.dev/docs/get-started/install	
+
+
+
+5. Configure Flutter
+
+Steps:
+
+	1. Setup android sdk path:
+		- flutter config --android-sdk C:\Android\
+	2. Call Flutter doctor:
+		- flutter doctor -v
+	3. Accept android licence:
+		- flutter doctor --android-licenses
+
+https://fluttercorner.com/unable-to-locate-android-sdk-in-flutter/#Solution_1_Flutter_Config
+
+JAVA_HOME
+C:\Program Files\Java\jdk1.8.0_201
+JAVA_HOME%\bin%
+
